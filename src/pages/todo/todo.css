@@ -1,0 +1,77 @@
+/**
+ * Todo CSS
+ *
+ */
+
+.todo-app {
+    position: relative;
+    
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-check-input:focus,
+.form-check-label:focus {
+    outline: none !important;
+}
+.form-check-inline {
+    padding-left: 0;
+    height: 20px;
+}
+
+.form-check-label {
+    -webkit-user-select: none;
+}
+
+.todo-item {
+    position: relative;
+}
+.todo-item .destroy {
+    visibility: hidden;
+    opacity: .6;
+}
+.todo-item .destroy:hover {
+    opacity: 1;
+}
+.todo-item:hover .destroy {
+    visibility: visible;
+}
+.todo-item .edit-input {
+    display: none;
+    position: absolute;
+    left: 49px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 669px;
+    border-radius: 0;
+}
+.todo-item.editing .edit-input {
+    display: block;
+}
+.todo-item.completed .form-check,
+.todo-item.completed .todo-title {
+    opacity: .5;
+}
+.todo-item.completed .todo-title {
+    text-decoration: line-through;
+}
+.todo-item .todo-title {
+    -webkit-user-select: none;
+}
+
+.todo-app-header {
+    margin-bottom: -1px;
+}
+.todo-app-header .input-group-addon {
+    padding-left: 0;
+    padding-right: 0;
+    border: none;
+    background-color: transparent;
+}
+.todo-app-header .todo-input {
+    border-radius: 1000px !important;
+}
+.todo-app-footer {
+    margin-top: -1px;
+}

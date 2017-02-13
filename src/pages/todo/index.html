@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>todo</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap4/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/magic-check/magic-check.css">
+    <link rel="stylesheet" href="./todo.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <a href="../index.html" class="float-left mr-4" title="返回"><i class="zmdi zmdi-arrow-left zmdi-hc-2x"></i></a>
+            <h3 class="float-left">Todo</h3>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="todo-app" id="todo">
+
+
+            <div class="card">
+                <header class="todo-app-header card-header">
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon">
+                            <div class="form-check form-check-inline">
+                                <input class="magic-checkbox" type="checkbox" id="toggleAll" v-model="allDone">
+                                <label for="toggleAll" class="form-check-label mb-0">&nbsp;</label>
+                            </div>
+                        </span>
+
+                        <input type="text"
+                        class="form-control todo-input"
+                        autofocus autocomplete="off"
+                        placeholder="What needs to be done?"
+                        v-model='newTodo'
+                        v-on:keyup.enter='addTodo'>
+
+                    </div>
+                </header>
+
+                <!-- todo list -->
+                <ul class="list-group list-group-flush todo-list">
+                    <li class="list-group-item todo-item"
+                        v-for="todo in filteredTodos"
+                        v-bind:key="todo.id"
+                        v-bind:class="{ 'completed': todo.completed, 'editing': todo == editedTodo }">
+
+                        <div class="view">
+                            <div class="form-check form-check-inline">
+                                <input
+                                v-bind:id=" 'todoCheck'+ todo.id "
+                                v-model="todo.completed"
+                                class="magic-checkbox toggle"
+                                type="checkbox">
+
+                                <label v-bind:for=" 'todoCheck'+ todo.id "></label>
+                            </div>
+
+                            <span class="todo-title" v-on:dblclick='editTodo(todo)'>{{todo.title}}</span>
+
+                            <!-- remove this todo button -->
+                            <button type="button" class="btn btn-link btn-sm destroy float-right"
+                                v-on:click="removeTodo(todo)">
+                                <i class="zmdi zmdi-close-circle zmdi-hc-lg text-danger"></i>
+                            </button>
+                        </div>
+
+                        <!-- edit input -->
+                        <input type="text"
+                            class="form-control edit-input"
+                            v-model="todo.title"
+                            v-todo-focus="todo == editedTodo"
+                            v-on:blur="doneEdit(todo)"
+                            v-on:keyup.enter='doneEdit(todo)'
+                            v-on:keyup.esc="cancelEdit(todo)">
+                    </li>
+
+                </ul> <!-- / todo list End -->
+
+                <footer class="card-footer todo-app-footer">
+                    <span class="float-left mr-5 todo-count"><strong>{{remaining}}</strong> {{remaining | pluralize}} left</span>
+
+                    <div class="btn-group btn-group-sm filters">
+                        <a href="#/all" class="btn btn-secondary" v-bind:class="{ active: visibility == 'all' }">All</a>
+                        <a href="#/active" class="btn btn-secondary" v-bind:class="{ active: visibility == 'active' }">Active</a>
+                        <a href="#/completed" class="btn btn-secondary" v-bind:class="{ active: visibility == 'completed' }">Completed</a>
+                    </div>
+
+                    <button type="button" class="btn btn-secondary btn-sm float-right"
+                        v-on:click="removeCompleted">Clear completed</button>
+
+                </footer>
+
+            </div> <!-- / .card End -->
+        </div>
+    </div>
+
+    <script type="text/javascript" src="../node_modules/vue/vue.js"></script>
+    <script type="text/javascript" src="./todo.js"></script>
+</body>
+
+</html>
