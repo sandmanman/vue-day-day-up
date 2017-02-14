@@ -5,6 +5,7 @@ import routeConfig from './router-config'; // 引入router-config.js文件
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
+import '../node_modules/material-design-iconic-font/dist/css/material-design-iconic-font.min.css';
 import App from './app';
 
 //加载路由中间件

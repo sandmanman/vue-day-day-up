@@ -26,7 +26,7 @@ cooking.set({
         port: 8888, // 端口
         publicPath: '/' //开启 dev-server 时默认打包的资源文件路径是和 index.html 同级的
     },
-    publicPath: '/dist/', // 打包后的资源文件相对于 url 的路径
+    publicPath: './', // 打包后的资源文件相对于 url 的路径
     extends: ['vue2', 'sass'] // 加载 cooking-vue2，自动配置 Vue 2.0 相关内容
 });
 
