@@ -1,38 +1,34 @@
 <template lang="html">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <ul class="nav flex-column">
+    <div class="container-fluid" style="padding:0;">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-5">Vue.js 2.0 Demo</h1>
+                <ul class="nav nav-tabs" style="margin-top: 3rem;">
                     <li class="nav-item">
-                        <router-link to="/githubCommits" class="nav-link">
+                        <router-link to="/githubCommits" class="nav-link" activeClass="active">
                             GithubCommits
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/tableGrid" class="nav-link">
+                        <router-link to="/tableGrid" class="nav-link" activeClass="active">
                             TableGrid
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/treeView" class="nav-link">
+                        <router-link to="/treeView" class="nav-link" activeClass="active">
                             TreeView
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/todo" class="nav-link">
-                            Todo
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/starRating" class="nav-link">
+                        <router-link to="/starRating" class="nav-link" activeClass="active">
                             StarRating
                         </router-link>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-9">
-                <router-view></router-view>
-            </div>
+        </div>
+        <div class="container">
+            <router-view></router-view>
         </div>
     </div>
 
@@ -43,11 +39,7 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.nav-item {
-    .router-link-active {
-        color: #fff;
-        background-color: #0275d8;
-        border-radius: 4px;
-    }
+.jumbotron {
+    padding-bottom: 0;
 }
 </style>

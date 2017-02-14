@@ -1,95 +1,123 @@
-/**
- * Tree View Component
- */
-
-<template>
-    <li>
-        <a href="javascript:void(0);" class="tree-label"
-            v-bind:class="[open ? 'open' : '']"
-            v-on:click="toggle">
-
-            <span class="tree-icon" v-if="isFolder">
-                <i class="fa" v-bind:class="[open ? 'fa-folder-open' : 'fa-folder']"></i>
-            </span>
-            <span class="tree-icon" v-else>
-                <i class="fa fa-file-o"></i>
-            </span>
-
-            {{model.name}}
-        </a>
-        <ul class="tree-children" v-show="open" v-if="isFolder">
-            <tree-view
-                class="treeitem"
-                v-for="item in model.children"
-                :model="item">
-            </tree-view>
-        </ul>
-    </li>
+<template lang="html">
+    <div class="card">
+        <div class="card-block">
+            <ul class="tree-view">
+                <tree-view v-for="treeItem in treeData" :model="treeItem"></tree-view>
+            </ul>
+        </div>
+    </div>
 </template>
 
 <script>
-    export default{
-        name: 'treeView',
-        props: {
-            model: Array,
-        },
-        data: function () {
-            return {
-                open: false
+var data = [{
+        name: 'My Tree 1',
+        children: [{
+                name: 'hello'
+            },
+            {
+                name: 'wat'
+            },
+            {
+                name: 'child folder',
+                children: [{
+                        name: 'child folder',
+                        children: [{
+                                name: 'hello'
+                            },
+                            {
+                                name: 'wat'
+                            }
+                        ]
+                    },
+                    {
+                        name: 'hello'
+                    },
+                    {
+                        name: 'wat'
+                    },
+                    {
+                        name: 'child folder',
+                        children: [{
+                                name: 'hello'
+                            },
+                            {
+                                name: 'wat'
+                            }
+                        ]
+                    }
+                ]
             }
-        },
-        computed: {
-            isFolder: function() {
-                return this.model.children && this.model.children.length
+        ]
+    },
+
+    {
+        name: 'My Tree 2',
+        children: []
+    },
+
+    {
+        name: 'My Tree 3',
+        children: [{
+                name: 'Jay Chou'
+            },
+            {
+                name: 'Bell'
             }
-        },
-        methods: {
-            toggle: function(){
-                if ( this.isFolder ) {
-                    this.open = !this.open
-                }
-            }
-        },
+        ]
     }
+];
+
+import treeView from './tree-view-component.vue';
+
+export default {
+    components: {
+        treeView
+    },
+    data: function() {
+        return {
+            treeData: data
+        }
+    }
+}
 </script>
 
 
-<style>
-    ul.tree-view,
-    ul.tree-view ul {
-        margin: 0;
-        padding: 0;
+<style lang="scss">
+ul.tree-view,
+ul.tree-view ul {
+    margin: 0;
+    padding: 0;
 
-        list-style: none;
-    }
-    .tree-view a {
-        color: #333;
-        text-decoration: none;
-    }
-    .tree-view a:hover,
-    .tree-view .tree-label.open {
-        color: #0275d8;
-    }
+    list-style: none;
+}
+.tree-view a {
+    color: #333;
+    text-decoration: none;
+}
+.tree-view .tree-label.open,
+.tree-view a:hover {
+    color: #0275d8;
+}
 
-    .tree-icon {
-        display: inline-block;
-        margin-right: 3px;
-        vertical-align: -2px;
-        width: 16px;
-        height: 16px;
-        overflow: hidden;
+.tree-icon {
+    display: inline-block;
+    margin-right: 3px;
+    vertical-align: -2px;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
 
-        text-align: center;
-        line-height: 16px;
-    }
-    .tree-icon i {
-        font-size: 14px;
-    }
-    .tree-view .tree-children {
-        padding-left: 20px;
-    }
+    text-align: center;
+    line-height: 16px;
+}
+.tree-icon i {
+    font-size: 14px;
+}
+.tree-view .tree-children {
+    padding-left: 20px;
+}
 
-    .tree-view .tree-label {
-        line-height: 24px;
-    }
+.tree-view .tree-label {
+    line-height: 24px;
+}
 </style>

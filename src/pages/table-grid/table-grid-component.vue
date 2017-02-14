@@ -1,47 +1,31 @@
-/**
- * table-grid-component
- */
+<template lang="html">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th
+                    v-for="key in columns"
+                    v-on:click="sortBy(key)"
+                    v-bind:class="{active: sortKey == key}">
+                    {{key | capitalize}}
+                    <span class="float-right">
+                        <i class="zmdi zmdi-hc-fw"
+                        v-bind:class="sortOrders[key] > 0 ? 'zmdi-sort-amount-desc' : 'zmdi-sort-amount-asc'"></i>
+                    </span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="entry in filteredData">
+                <td v-for="key in columns">
+                    {{entry[key]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</template>
 
-Vue.config.debug = true;
-Vue.config.devtools = true;
-
-// 数据
-var goods = [
-    {
-        "title": "StarWars 限量版笔记本",
-        "price": "288.00",
-        "like": "64",
-    },
-    {
-        "title": "TRIWA Klinga 简约中性腕表",
-        "price": "1480.00",
-        "like": "118",
-    },
-    {
-        "title": "原创全棉帆布双肩包",
-        "price": "499.00",
-        "like": "10",
-    },
-    {
-        "title": "Usmile-U1001 电动牙刷旗舰版",
-        "price": "399.00",
-        "like": "32",
-    },
-    {
-        "title": "享睡 Nox 智能助眠灯",
-        "price": "799.00",
-        "like": "67",
-    },
-    {
-        "title": "无同 阿粽特色手工手链",
-        "price": "233.00",
-        "like": "168",
-    }
-]
-
-// 注册组件
-Vue.component('vue-table-grid', {
-    template: '#tableGridTemplate',
+<script>
+export default {
     replace: true,
     props: {
         data: Array,
@@ -96,16 +80,9 @@ Vue.component('vue-table-grid', {
             this.sortOrders[key] = this.sortOrders[key] * -1;
             console.log(this.sortKey);
         }
-    },
-});
-
-
-// 实例化Vue
-var tableGirdApp = new Vue({
-    el: '#tableGirdApp',
-    data: {
-        searchQuery: '',
-        gridColumns: ['title', 'price', 'like'],
-        gridData: goods
     }
-});
+}
+</script>
+
+<style lang="css">
+</style>
