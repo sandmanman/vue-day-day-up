@@ -127,7 +127,7 @@ export default {
                 //
                 var state = this.readyState,
                     responseCode = xhr.status;
-                console.log("xhr.onload called. readyState: " + state + "; status: " + responseCode);
+                //console.log("xhr.onload called. readyState: " + state + "; status: " + responseCode);
                 if ( state === 4 ) {
                     if ( responseCode === 200 ) {
                         that.isLoading = false;
@@ -170,7 +170,7 @@ export default {
 
             this.fetchData(that.perPage += that.perPage);
 
-            console.log('当前perPage：'+that.perPage)
+            //console.log('当前perPage：'+that.perPage)
         },
 
         reload: function() {
@@ -183,5 +183,5 @@ export default {
 </script>
 
 <style lang="scss">
-    
+
 </style>

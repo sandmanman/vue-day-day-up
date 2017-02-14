@@ -39,13 +39,7 @@
 </template>
 
 <script>
-export default {
-    data: function() {
-        return {
-            active: false
-        }
-    }
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
