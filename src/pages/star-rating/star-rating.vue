@@ -1,19 +1,23 @@
 <template lang="html">
-    <div class="star-rating">
-        <label class="star-rating-star"
-            v-for="rating in ratings"
-            v-bind:class="{ selected: selectedOr(value, rating), disabled: disabled }"
-            v-on:click="set(rating)"
-            v-on:mouseover="starHover(rating)"
-            v-on:mouseout="starOut">
+    <div class="card">
+        <div class="card-block">
+            <div class="star-rating">
+                <label class="star-rating-star"
+                    v-for="rating in ratings"
+                    v-bind:class="{ selected: selectedOr(value, rating), disabled: disabled }"
+                    v-on:click="set(rating)"
+                    v-on:mouseover="starHover(rating)"
+                    v-on:mouseout="starOut">
 
-            <input type="radio" class="star-rating-check"
-            v-bind="{value: value}"
-            v-on:input="updateValue">
+                    <input type="radio" class="star-rating-check"
+                    v-bind="{value: value}"
+                    v-on:input="updateValue">
 
-            <i class="star-icon">★</i>
-        </label>
-        <span class="rating-num">{{value}}分</span>
+                    <i class="star-icon">★</i>
+                </label>
+                <div class="rating-num">{{value}}分</div>
+            </div>
+        </div>
     </div>
 </template>
 
