@@ -24,6 +24,11 @@
                             StarRating
                         </router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/button" class="nav-link" activeClass="active">
+                            Button
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,7 +43,7 @@
 export default {}
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .jumbotron {
     padding-bottom: 0;
 }
