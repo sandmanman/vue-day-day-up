@@ -1,13 +1,17 @@
 <template lang="html">
-    <div class="table-gird-app">
-        <form id="search" class="form-group form-inline">
-            <input type="text" class="form-control" name="query" placeholder="filter..." value="" v-model="searchQuery">
-        </form>
-        <vue-table-grid
-            v-bind:columns="gridColumns"
-            v-bind:data="gridData"
-            v-bind:filter-key="searchQuery">
-        </vue-table-grid>
+    <div class="card">
+        <div class="card-block">
+            <div class="table-gird-app">
+                <form id="search" class="form-group form-inline">
+                    <input type="text" class="form-control" name="query" placeholder="filter..." value="" v-model="searchQuery">
+                </form>
+                <vue-table-grid
+                    v-bind:columns="gridColumns"
+                    v-bind:data="gridData"
+                    v-bind:filter-key="searchQuery">
+                </vue-table-grid>
+            </div>
+        </div>
     </div>
 </template>
 

@@ -1,5 +1,9 @@
 <template>
-    <vv-navbar></vv-navbar>
+    <div class="card">
+        <div class="card-block">
+            <vv-navbar></vv-navbar>
+        </div>
+    </div>
 </template>
 
 <script>
