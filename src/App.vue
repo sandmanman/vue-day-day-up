@@ -29,6 +29,11 @@
                             Button
                         </router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link to="/navBar" class="nav-link" activeClass="active">
+                            navBar
+                        </router-link>
+                    </li>
                 </ul>
             </div>
         </div>
