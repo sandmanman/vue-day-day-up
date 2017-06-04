@@ -1,5 +1,6 @@
 <template lang="html">
     <div class="card">
+        <card-header></card-header>
         <div class="card-block">
             <div class="table-gird-app">
                 <form id="search" class="form-group form-inline">
@@ -49,10 +50,12 @@ var goods = [
     }
 ]
 
+import cardHeader from '../../components/card-header/cardHeader.vue';
 import vueTableGrid from './table-grid-component.vue';
 
 export default {
     components: {
+        cardHeader,
         vueTableGrid
     },
     data: function(){

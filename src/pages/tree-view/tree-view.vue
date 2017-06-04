@@ -1,5 +1,6 @@
 <template lang="html">
     <div class="card">
+        <card-header></card-header>
         <div class="card-block">
             <ul class="tree-view">
                 <tree-view v-for="treeItem in treeData" :model="treeItem"></tree-view>
@@ -67,10 +68,12 @@ var data = [{
     }
 ];
 
+import cardHeader from '../../components/card-header/cardHeader.vue';
 import treeView from './tree-view-component.vue';
 
 export default {
     components: {
+        cardHeader,
         treeView
     },
     data: function() {

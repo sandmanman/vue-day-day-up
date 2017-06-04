@@ -1,5 +1,8 @@
 <template lang="html">
     <div class="card">
+        
+        <card-header></card-header>
+
         <div class="card-block">
             <div class="btn-group float-left" data-toggle="buttons">
                 <label class="btn btn-secondary btn-sm"
@@ -51,7 +54,11 @@
 </template>
 
 <script>
+import cardHeader from '../../components/card-header/cardHeader.vue';
 export default {
+    components: {
+        cardHeader
+    },
     data: function() {
         return {
             branches: {

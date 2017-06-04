@@ -6,53 +6,109 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
-                <div class="col-2">
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <router-link to="/githubCommits" class="nav-link" activeClass="active">
-                                GithubCommits
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/tableGrid" class="nav-link" activeClass="active">
-                                TableGrid
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/treeView" class="nav-link" activeClass="active">
-                                TreeView
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/starRating" class="nav-link" activeClass="active">
-                                StarRating
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/button" class="nav-link" activeClass="active">
-                                Button
-                            </router-link>
-                        </li>
-                        <li class="nav-item">
-                            <router-link to="/navBar" class="nav-link" activeClass="active">
-                                navBar
-                            </router-link>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-10">
-                    <router-view></router-view>
-                </div>
+
+            <div class="card">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <router-link to="/githubCommits" class="card-link" activeClass="active" v-on:click="show = !show">
+                            GithubCommits
+                        </router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/tableGrid" class="card-link" activeClass="active">
+                            TableGrid
+                        </router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/treeView" class="card-link" activeClass="active">
+                            TreeView
+                        </router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/starRating" class="card-link" activeClass="active">
+                            StarRating
+                        </router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/button" class="card-link" activeClass="active">
+                            Button
+                        </router-link>
+                    </li>
+                    <li class="list-group-item">
+                        <router-link to="/navBar" class="card-link" activeClass="active">
+                            navBar
+                        </router-link>
+                    </li>
+                </ul>
             </div>
+
+            <transition :name="transitionName">
+                <router-view class="view"></router-view>
+            </transition>
+
         </div>
+
     </div>
+
+
+    
 
 </template>
 
 <script>
-export default {}
+export default {
+    name: 'app',
+    data() {
+        return {
+            transitionName: 'slide-fade'
+        }
+    }
+}
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
+html,
+body,
+.wrapper {
+    height: 100%;
+}
+.view {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    left: 15px;
+
+    margin-bottom: 2rem;
+
+    min-height: 100%;
+
+    background-color: #fff;
+    border-radius: .25rem;
+    box-shadow: 0 0 11px rgba(0,0,0,.15);
+
+}
+
+//页面动画
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s ease;
+}
+.fade-enter,
+.fade-leave-active {
+    opacity: 0
+}
+.view {
+    transition: all .5s cubic-bezier(.55,0,.1,1);
+}
+.slide-fade-enter {
+    opacity: 0;
+    -webkit-transform: translate(30px, 0);
+    transform: translate(30px, 0);
+}
+.slide-fade-leave-active {
+    opacity: 0;
+    -webkit-transform: translate(30px, 0);
+    transform: translate(30px, 0);
+}
+
 </style>

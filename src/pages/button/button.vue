@@ -1,5 +1,6 @@
 <template>
     <div class="card">
+        <card-header></card-header>
         <div class="card-block">
             <vv-button msg="Google" v-on:buttonClickEvent="doSomething1">
                 <i slot="icon" class="fa fa-google"></i>
@@ -13,9 +14,11 @@
 </template>
 
 <script>
+    import cardHeader from '../../components/card-header/cardHeader.vue';
     import vvButton from '../../components/button/vvButton.vue';
     export default {
         components: {
+            cardHeader,
             vvButton
         },
         methods: {
