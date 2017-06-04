@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="container-fluid" style="padding:0;">
+    <div class="wrapper">
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-5">Vue.js 2.0 Demo</h1>

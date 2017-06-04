@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import vvButton from '../../components/button/vvButton';
+    import vvButton from '../../components/button/vvButton.vue';
     export default {
         components: {
             vvButton
