@@ -3,7 +3,7 @@
         <card-header></card-header>
         <div class="card-block">
             <ul class="tree-view">
-                <tree-view v-for="treeItem in treeData" :model="treeItem"></tree-view>
+                <tree-view v-for="treeItem in treeData" :key="treeItem.id" :model="treeItem"></tree-view>
             </ul>
         </div>
     </div>

@@ -17,6 +17,7 @@
             <tree-view
                 class="treeitem"
                 v-for="item in model.children"
+                :key="item.id"
                 :model="item">
             </tree-view>
         </ul>
