@@ -8,6 +8,7 @@ import treeView from './pages/tree-view/tree-view.vue';
 import starRating from './pages/star-rating/star-rating.vue';
 import button from './pages/button/button.vue';
 import navBar from './pages/nav-bar/nav-bar.vue';
+import EventsBulletinBoard from './pages/events-bulletin-board/events-bulletin-board.vue';
 
 export default [{
     path: '/githubCommits',
@@ -27,4 +28,7 @@ export default [{
 },{
     path: '/navBar',
     component: navBar,
+},{
+    path: '/EventsBulletinBoard',
+    component: EventsBulletinBoard,
 }]

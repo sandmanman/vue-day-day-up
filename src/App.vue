@@ -9,34 +9,39 @@
 
             <div class="card">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <router-link to="/githubCommits" class="card-link" activeClass="active" v-on:click="show = !show">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/githubCommits" activeClass="active">
                             GithubCommits
                         </router-link>
                     </li>
-                    <li class="list-group-item">
-                        <router-link to="/tableGrid" class="card-link" activeClass="active">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/tableGrid" activeClass="active">
                             TableGrid
                         </router-link>
                     </li>
-                    <li class="list-group-item">
-                        <router-link to="/treeView" class="card-link" activeClass="active">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/treeView" activeClass="active">
                             TreeView
                         </router-link>
                     </li>
-                    <li class="list-group-item">
-                        <router-link to="/starRating" class="card-link" activeClass="active">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/starRating" activeClass="active">
                             StarRating
                         </router-link>
                     </li>
-                    <li class="list-group-item">
-                        <router-link to="/button" class="card-link" activeClass="active">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/button" activeClass="active">
                             Button
                         </router-link>
                     </li>
-                    <li class="list-group-item">
-                        <router-link to="/navBar" class="card-link" activeClass="active">
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/navBar" activeClass="active">
                             navBar
+                        </router-link>
+                    </li>
+                    <li class="list-group-item list-group-item-action">
+                        <router-link to="/EventsBulletinBoard" activeClass="active">
+                            Events Bulletin Board
                         </router-link>
                     </li>
                 </ul>
