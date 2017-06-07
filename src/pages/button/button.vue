@@ -14,8 +14,8 @@
 </template>
 
 <script>
-    import cardHeader from '../../components/card-header/cardHeader.vue';
-    import vvButton from '../../components/button/vvButton.vue';
+    import cardHeader from '@/components/card-header/cardHeader.vue';
+    import vvButton from '@/components/button/vvButton.vue';
     export default {
         components: {
             cardHeader,

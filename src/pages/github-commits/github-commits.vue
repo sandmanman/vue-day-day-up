@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import cardHeader from '../../components/card-header/cardHeader.vue';
+import cardHeader from '@/components/card-header/cardHeader.vue';
 export default {
     components: {
         cardHeader

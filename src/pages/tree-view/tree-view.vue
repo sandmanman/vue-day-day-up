@@ -68,7 +68,7 @@ var data = [{
     }
 ];
 
-import cardHeader from '../../components/card-header/cardHeader.vue';
+import cardHeader from '@/components/card-header/cardHeader.vue';
 import treeView from './tree-view-component.vue';
 
 export default {

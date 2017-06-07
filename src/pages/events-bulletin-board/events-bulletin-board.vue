@@ -67,7 +67,7 @@
 
     import $http from 'axios';
 
-    import cardHeader from '../../components/card-header/cardHeader.vue';
+    import cardHeader from '@/components/card-header/cardHeader.vue';
 
     export default {
         name: 'EventsBulletinBoard',
@@ -91,7 +91,7 @@
         methods: {
             getEvents() {
                 const _this = this;
-                $http.get('mock/db.json')
+                $http.get('/api/events')
                      .then(function(res){
                         _this.events = res.data.events;
                      })
@@ -103,7 +103,7 @@
                 //添加事件
                 const _this = this;
                 if(this.event.title) {
-                    $http.post('mock/db.json', _this.event)
+                    $http.post('/api/events', _this.event)
                          .then(function(){
                             _this.events.push(_this.event)
                             _this.event = {

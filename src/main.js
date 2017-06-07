@@ -1,21 +1,17 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+// The Vue build version to load with the `import` command
+// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import Vue from 'vue'
+import App from './App'
+import router from './router'
 
-// 引入router-config.js文件
-import routeConfig from './router-config';
+Vue.config.productionTip = false
 
-import App from './App.vue';
-
-//加载路由中间件
-Vue.use(VueRouter)
-//定义路由
-var router = new VueRouter({
-    routes: routeConfig
-})
+/* eslint-disable no-new */
 new Vue({
     el: '#app',
-    render: function(h) {
-        return h(App)
-    },
     router,
+    template: '<App/>',
+    components: {
+        App
+    }
 })

@@ -8,8 +8,8 @@
 </template>
 
 <script>
-    import cardHeader from '../../components/card-header/cardHeader.vue';
-    import vvNavbar from '../../components/navbar/vvNavbar.vue';
+    import cardHeader from '@/components/card-header/cardHeader.vue';
+    import vvNavbar from '@/components/navbar/vvNavbar.vue';
     export default {
         components: {
             cardHeader,
