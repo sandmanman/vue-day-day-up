@@ -3,8 +3,10 @@
 
         <div class="jumbotron jumbotron-fluid">
               <div class="container">
-                  <img src="./assets/logo.png">
-                  <h1 class="display-5">Vue.js 2.0 Demo</h1>
+                    <h1 class="display-5">
+                        <img src="./assets/logo.png" width="47">  
+                        Vue.js 2.0 Demo
+                    </h1>
               </div>
           </div>
           <div class="container">
@@ -18,27 +20,27 @@
                       </li>
                       <li class="list-group-item list-group-item-action">
                           <router-link to="/treeView" activeClass="active">
-                              TreeView
+                              树形菜单
                           </router-link>
                       </li>
                       <li class="list-group-item list-group-item-action">
                           <router-link to="/starRating" activeClass="active">
-                              StarRating
+                              星星打分
                           </router-link>
                       </li>
                       <li class="list-group-item list-group-item-action">
                           <router-link to="/button" activeClass="active">
-                              Button
+                              按钮
                           </router-link>
                       </li>
                       <li class="list-group-item list-group-item-action">
                           <router-link to="/navBar" activeClass="active">
-                              navBar
+                              导航
                           </router-link>
                       </li>
                       <li class="list-group-item list-group-item-action">
                           <router-link to="/EventsBulletinBoard" activeClass="active">
-                              Events Bulletin Board
+                              活动看板
                           </router-link>
                       </li>
                   </ul>

@@ -1,32 +1,39 @@
 {
-    "posts": [{
-        "id": 1,
-        "title": "json-server",
-        "author": "typicode"
-    }],
-    "comments": [{
-        "id": 1,
-        "body": "some comment",
-        "postId": 1
-    }],
-    "profile": {
-        "name": "typicode"
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "events": [
+    {
+      "id": 1,
+      "title": "視頻會議",
+      "detail": "Skype with guys from NASA",
+      "date": "2015-12-12"
     },
-    "events": [{
-            "id": 1,
-            "title": "視頻會議",
-            "detail": "Skype with guys from NASA",
-            "date": "2015-12-12"
-        },
-        {
-            "id": 2,
-            "title": "去火星",
-            "detail": "救援马特・达蒙",
-            "date": "2016-1-1"
-        },
-        {
-            "id": 3,
-            "title": "记者会"
-        }
-    ]
+    {
+      "id": 2,
+      "title": "去火星",
+      "detail": "救援马特・达蒙",
+      "date": "2016-1-1"
+    },
+    {
+      "title": "去旅游",
+      "detail": "6月27日公司全体员工去香港度假3天",
+      "date": "2017-06-27",
+      "id": 3
+    }
+  ]
 }

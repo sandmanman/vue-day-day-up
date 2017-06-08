@@ -8,16 +8,16 @@
                     <!-- add an event form -->
                     <div class="card">
                         <div class="card-header">
-                            添加事件
+                            添加活动
                         </div>
                         <div class="card-block">
                             <form action="">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="事件标题"
+                                    <input type="text" class="form-control" placeholder="活动标题"
                                     v-model="event.title">
                                 </div>
                                 <div class="form-group">
-                                    <textarea type="text" class="form-control" placeholder="事件描述"
+                                    <textarea type="text" class="form-control" placeholder="活动描述"
                                     v-model="event.detail"></textarea>
                                 </div>
                                 <div class="form-group">
@@ -50,7 +50,7 @@
                                 </button>
 
                                 <button type="button" class="btn btn-outline-danger btn-sm"
-                                    @click="deleteEvent(index)" v-bind:data-index="index">
+                                    @click="deleteEvent(index,event.id)">
                                         <i class="zmdi zmdi-delete"></i>
                                 </button>
                             </div>
@@ -93,14 +93,14 @@
                 const _this = this;
                 $http.get('/api/events')
                      .then(function(res){
-                        _this.events = res.data.events;
+                        _this.events = res.data;
                      })
                      .catch(function(error){
                         console.error(error);
                      });
             },
             addEvent() {
-                //添加事件
+                //添加活动
                 const _this = this;
                 if(this.event.title) {
                     $http.post('/api/events', _this.event)
@@ -118,10 +118,17 @@
                     
                 }
             },
-            deleteEvent(index) {
+            deleteEvent(index,id) {
                 //删除
+                const _this = this;
                 if( confirm('确定要移除该事件？') ) {
-                    this.events.splice(index,1);
+                    $http.delete('/api/events/'+id)
+                         .then(function(){
+                            _this.events.splice(index,1);
+                         })
+                         .catch(function(error){
+                             console.log(error)
+                         })
                 }
                 //console.log(index);
             }
