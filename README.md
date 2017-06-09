@@ -13,8 +13,9 @@
 
 ## 技术栈
 - Vue2
-- Axios
 - Vuex
+- Axios
+- [bootstrap-vue](https://bootstrap-vue.github.io)
 - [JSON Server](https://github.com/typicode/json-server)
 
 
