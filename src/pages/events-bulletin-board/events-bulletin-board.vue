@@ -69,7 +69,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Modal title</h5>
+                        <h5 class="modal-title">编辑</h5>
                         <button type="button" class="close" @click="closeModal">
                             <span>&times;</span>
                         </button>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="form-group">
                                 <textarea type="text" class="form-control" placeholder="活动描述"
-                                v-model="selectedEvent.detail"></textarea>
+                                    v-model="selectedEvent.detail"></textarea>
                             </div>
                             <div class="form-group">
                                 <input type="date" class="form-control" 
@@ -92,7 +92,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" @click="closeModal">取消</button>
-                        <button type="button" class="btn btn-primary" @click="updateEvent(selectedEvent.id)">保存</button>
+                        <button type="button" class="btn btn-primary" @click="updateEvent(selectedEvent.id)">{{submitPlaceholderText}}</button>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,9 @@
                 },
                 events: [],
                 selectedEvent: [],
+                modifyEvent: [],
                 modalShow: false,
+                submitPlaceholderText: '保存'
             }
         },
         created() {
@@ -149,6 +151,10 @@
                     $http.post('/api/events', _this.event)
                          .then(function(){
                             _this.events.push(_this.event)
+
+                            //添加成功后，重新获取数据
+                            _this.getEvents()
+
                             _this.event = {
                                 title: '',
                                 detail: '',
@@ -168,6 +174,10 @@
                     $http.delete('/api/events/'+id)
                          .then(function(){
                             _this.events.splice(index,1);
+
+                            //删除成功后，重新获取数据
+                            _this.getEvents()
+                            
                          })
                          .catch(function(error){
                              console.log(error)
@@ -177,19 +187,28 @@
             editEvent(index) {
                 //弹出编辑 modal
                 this.selectedEvent = this.events[index]
+                console.log('selectedEvent:')
+                console.log(this.selectedEvent)
+                this.submitPlaceholderText = '保存'
                 this.modalShow = true
-                console.log(this.selectedEvent.id)
             },
             updateEvent(id) {
                 //更新
                 const _this = this;
+                _this.submitPlaceholderText = '保存中...'
+                
                 $http.put('/api/events/' + id, {
                         title: _this.selectedEvent.title,
                         detail: _this.selectedEvent.detail,
                         date: _this.selectedEvent.date
                      })
                      .then(function(response){
-                        _this.modalShow = false
+                        setTimeout(function(){
+                            _this.modalShow = false
+                        }, 1000)
+
+                        //修改成功后，重新获取数据
+                        _this.getEvents();
                      })
                      .catch(function(error){
                         console.log(error)
