@@ -46,7 +46,7 @@
 
                                 <div class="w-100">
                                     <button type="button" class="btn btn-outline-primary btn-sm"
-                                        @click="editEvent(index, event.id)">
+                                        @click="openEditModal(index)">
                                         <i class="zmdi zmdi-edit"></i>
                                     </button>
 
@@ -184,7 +184,7 @@
                          })
                 }
             },
-            editEvent(index) {
+            openEditModal(index) {
                 //弹出编辑 modal
                 this.selectedEvent = this.events[index]
                 console.log('selectedEvent:')
